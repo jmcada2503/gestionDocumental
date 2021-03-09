@@ -1,0 +1,76 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+<html>
+
+<head>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <title>Gestor de información documental</title>
+</head>
+
+<body>
+    
+    {% include "gestionDocumental/templates/mainNavbar.html" %}
+
+    <p class="variable" id="error">{{error}}</p>
+
+    <script src="{% static 'js/errors.js' %}"></script>
+
+    <form id="formDataUser" action="/newUser/" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <div id="newUser">
+            <h2 class="subTitle" style="margin-left: 50px;">Registrarse</h2>
+            <div>
+                <label for="name" class="inputLabel">Nombres:</label>
+                <input type="text" class="inputText notNull" name="name">
+            </div>
+            <div>
+                <label for="lastname" class="inputLabel">Apellidos:</label>
+                <input type="text" class="inputText notNull" name="lastname">
+            </div>
+            <div>
+                <label for="idCode" class="inputLabel">Número de documento:</label>
+                <input type="text" class="inputText notNull" name="idCode">
+            </div>
+            <div>
+                <label for="idCard" class="inputLabel" style="width: 100%;">Documento de identidad:</label>
+                <input type="file" name="idCard" class="inputText" style="color: rgb(87, 87, 87); margin-bottom: 20px;" accept="application/pdf">
+            </div>
+            <div>
+                <label for="phone" class="inputLabel">Número de teléfono:</label>
+                <input type="text" class="inputText" name="phone">
+            </div>
+            <div>
+                <label for="email" class="inputLabel">Correo electrónico:</label>
+                <input type="text" class="inputText" name="email">
+            </div>
+            <div>
+                <label for="eps" class="inputLabel">EPS:</label>
+                <input type="text" class="inputText" name="eps">
+            </div>
+            <div>
+                <label for="age" class="inputLabel">Edad:</label>
+                <input type="text" class="inputText" name="age">
+            </div>
+            <div>
+                <label for="password" class="inputLabel">Nueva contraseña:</label>
+                <input type="password" class="inputText notNull" name="password">
+            </div>
+            <div>
+                <label for="checkPassword" class="inputLabel">Confirmar contraseña:</label>
+                <input type="password" class="inputText notNull" name="checkPassword">
+            </div>
+            <div>
+                <label for="profession" class="inputLabel">Profesión:</label>
+                <input type="text" class="inputText" name="profession">
+            </div>
+
+            <!-- Submit button -->
+            <input type="button" class="submitButton" onclick="sendData()" value="Enviar">
+        </div>
+    </form>
+
+</body>
+
+</html>

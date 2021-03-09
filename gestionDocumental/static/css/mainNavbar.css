@@ -1,0 +1,45 @@
+#navbar {
+    width: 100%;
+    background-color: blue;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgb(179, 179, 179);
+    height: 10%;
+}
+
+#navbarButtons {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+}
+
+.textButton {
+    font-size: 25px;
+    color: white;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    opacity: 80%;
+}
+
+.textButton:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.spaceBar {
+    height: 40px;
+    width: 2px;
+    border-radius: 1px;
+    background-color: white;
+    opacity: 40%;
+    margin: 0px 40px;
+}

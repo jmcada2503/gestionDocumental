@@ -1,0 +1,13 @@
+ #userInfo {
+    position: relative;
+    display: grid;
+    width: 60%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.infoSubTitle {
+    color: rgb(68, 68, 255);
+    font-size: 25px;
+    flex-basis: content;
+    margin: 0px 20px;
+}

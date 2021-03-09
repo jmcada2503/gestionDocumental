@@ -1,0 +1,17 @@
+#signIn {
+    width:40%;
+    margin: 50px auto;
+    border: 0px solid;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(179, 179, 179);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    margin-bottom: 50px;
+}
+
+input[type="password"] {
+    margin-bottom: 50px;
+}

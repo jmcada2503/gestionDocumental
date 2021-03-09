@@ -1,0 +1,39 @@
+#users {
+    position: relative;
+    width: 90%;
+    height: 70%;
+    margin: 10px auto;
+    overflow-y: auto;
+}
+#searchInput {
+    font-size: 25px;
+    color: black;
+    opacity: 80%;
+    margin: 0px;
+    font-family: "Roboto", sans-serif;
+    border: 0px solid white;
+    width: 80%;
+    outline: none;
+}
+.imgButton {
+    opacity: 80%;
+}
+.imgButton:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+.userInfo {
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    opacity: 70%;
+    padding: 0px 20px;
+    margin: 0px;
+}
+.contentUserInfo {
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+.contentUserInfo:hover > .userInfo {
+    opacity: 100%;
+    cursor: pointer;
+}

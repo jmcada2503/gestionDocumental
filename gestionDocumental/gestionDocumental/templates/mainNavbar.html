@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/mainNavbar.css' %}">
+
+<nav id="navbar">
+    <h1 style="color: white;" class="title">Sistema de gestión documental</h1>
+    <div id="navbarButtons">
+        <div class="spaceBar"></div>
+        <p class="textButton" onclick="window.location.href = '/signIn/'">Iniciar sesión</p>
+    </div>
+</nav>

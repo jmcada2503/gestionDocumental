@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="{% static 'css/common.css' %}">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/mainNavbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signIn.css' %}">
+    <meta charset="UTF-8">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+
+    <p class="variable" id="error">{{error}}</p>
+
+    <script src="{% static 'js/errors.js' %}"></script>
+    
+    <nav id="navbar">
+        <h1 style="color: white;" class="title">Sistema de gestión documental</h1>
+        <div id="navbarButtons">
+            <div class="spaceBar"></div>
+            <p class="textButton" onclick="window.location.href = '/'">Volver</p>
+        </div>
+    </nav>
+
+    <form action="/signIn/" method="POST">{% csrf_token %}
+        <div id="signIn">
+            <h2 class="subTitle" style="text-align: center;" >Iniciar sesión</h2>
+            <label for="idCode" class="inputLabel">Número de documento:</label>
+            <input type="text" class="inputText" name="idCode">
+            <label for="password" class="inputLabel">Contraseña:</label>
+            <input type="password" class="inputText" name="password">
+
+            <!-- Submit button -->
+            <input type="submit" class="submitButton" value="Ingresar" style="margin: 0px 20%;">
+        </div>
+    </form>
+
+</body>
+</html>

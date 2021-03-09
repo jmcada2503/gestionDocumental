@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/mainNavbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Buscar empleado</title>
+</head>
+<body>
+    
+    <!-- Variables -->
+    <form action="/search/" class="variable" method="POST">{% csrf_token %}
+        <input type="hidden" class="variable" name="rc" value="{{rc}}">
+    </form>
+    <p class="variable" id="usersInfo">{{usersInfo}}</p>
+    <p class="variable" id="error">{{error}}</p>
+
+    <script src="{% static 'js/errors.js' %}"></script>
+
+    <nav id="navbar">
+        <h1 style="color: white;" class="title">Sistema de gestión documental</h1>
+        <div id="navbarButtons">
+            <p class="textButton" onclick="document.getElementsByTagName('form')[0].action = '/signIn/'; document.getElementsByTagName('form')[0].submit()">Volver</p>
+            <div class="spaceBar"></div>
+            <p class="textButton" onclick="window.location.href = '/signIn/'">Cerrar sesión</p>
+        </div>
+    </nav>
+
+    <form action="/search/" method="POST" id="searchUser">{% csrf_token %}
+        <input type="hidden" class="variable" name="rc" value="{{rc}}">
+        <div class="flexDiv" style="justify-content: space-between; height: 10%; margin: 2.5% 20%; width: 60%;">
+            <input type="text" id="searchInput" placeholder="Buscar empleados" name="searchInput">
+            <div class="flexDiv" style="justify-content: right;">
+                <div class="spaceBar" style="background-color: black;"></div>
+                <img  class="imgButton" src="{% static 'img/search.png' %}" alt="Buscar" style="height: 30px;" onclick="document.getElementById('searchUser').submit()">
+            </div>
+        </div>
+    </form>
+
+    <div class="contentBox" id="users">
+    </div>
+
+    <script src="{% static 'js/search.js' %}"></script>
+
+</body>
+</html>

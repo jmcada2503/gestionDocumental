@@ -1,0 +1,12 @@
+<html>
+
+<form action="/prueba/" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+    <input type="file" name="fileTest">
+    <input type="submit" value="Enviar">
+
+</form>
+
+<img src="{{ img.url }}" style="height: 50%;">
+
+</html>

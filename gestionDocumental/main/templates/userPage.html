@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/mainNavbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <script src="{% static 'js/showInfo.js' %}"></script>
+
+    <meta charset="UTF-8">
+    <title>{{name}}</title>
+</head>
+<body>
+    
+    <!-- Variables -->
+    <p class="variable" id="rc">{{rc}}</p>
+    <p class="variable" id="info">{{info}}</p>
+
+    <nav id="navbar">
+        <h1 style="color: white;" class="title">Sistema de gestión documental</h1>
+        <div id="navbarButtons">
+            <div class="spaceBar"></div>
+            <p class="textButton" onclick="window.location.href = '/signIn/'">Cerrar sesión</p>
+        </div>
+    </nav>
+
+    <div class="contentBox" id="userInfo">
+        <h2 class="subTitle" style="margin-left: 50px;">Tu información</h2>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Nombres:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Apellidos:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Documento:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Rol:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Teléfono:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">EPS:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Email:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Edad:</p>
+            <p class="inputLabel"></p>       
+        </div>
+        <div class="flexDiv">
+            <p class="inputLabel infoSubTitle">Profesión:</p>
+            <p class="inputLabel"></p>
+        </div>
+    </div>
+
+    <!-- Mostrar la información del usuario -->
+    <script>showInfo()</script>
+
+</body>
+</html>

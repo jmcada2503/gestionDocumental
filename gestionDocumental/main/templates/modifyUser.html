@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mainNavbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modify.css' %}">
+    <script src="{% static 'js/modify.js' %}"></script>
+
+    <meta charset="UTF-8">
+    <title>{{name}}</title>
+</head>
+<body>
+    
+    <!-- variables -->
+    <p class="variable" id="v">{{verified}}</p>
+    
+    <nav id="navbar">
+        <h1 style="color: white;" class="title">Sistema de gestión documental</h1>
+        <div id="navbarButtons">
+            <p class="textButton" onclick="action('verify')">Validar</p>
+            <div class="spaceBar"></div>
+            <p class="textButton" onclick="action('saveInfo')">Guardar información</p>
+            <div class="spaceBar"></div>
+            <p class="textButton" onclick="action('deleteUser')">Eliminar empleado</p>
+        </div>
+    </nav>
+
+    <script>verifyButton()</script>
+    
+    <form action="/modifyUser/" method="POST" id="modifyUser" enctype="multipart/form-data" style="height: 80%; margin: 2% 0px;">{% csrf_token %}
+        <input type="hidden" value="{{rc}}" name="rc">
+        <div class="contentBox" id="userInfo">
+            <h2 class="subTitle" style="text-align: center;">Información del empleado</h2>
+            <div>
+                <label for="name" class="inputLabel">Nombres:</label>
+                <input type="text" class="inputText notNull" name="name" placeholder="{{nombre}}">
+            </div>
+            <div>
+                <label for="lastName" class="inputLabel">Apellidos:</label>
+                <input type="text" class="inputText notNull" name="lastName" placeholder="{{lastName}}">
+            </div>
+            <div>
+                <label for="idCode" class="inputLabel">Número de documento:</label>
+                <input type="text" class="inputText notNull" name="idCode" placeholder="{{idCode}}">
+            </div>
+            <div>
+                <label for="idCard" class="inputLabel"><a href="{{ idCard }}" target="_blank">Documento de identidad</a></label>
+                <input type="file" class="inputText" name="idCard" accept="application/pdf">
+            </div>
+            <script>disableLink()</script>
+            <div>
+                <label for="phone" class="inputLabel">Número de teléfono:</label>
+                <input type="text" class="inputText" name="phoneNumber" placeholder="{{phoneNumber}}">
+            </div>
+            <div>
+                <label for="email" class="inputLabel">Correo electrónico:</label>
+                <input type="text" class="inputText" name="email" placeholder="{{email}}">
+            </div>
+            <div>
+                <label for="password" class="inputLabel">Contraseña:</label>
+                <input type="text" class="inputText notNull" name="password" placeholder="{{password}}">
+            </div>
+            <div>
+                <label for="eps" class="inputLabel">EPS:</label>
+                <input type="text" class="inputText" name="eps" placeholder="{{eps}}">
+            </div>
+            <div>
+                <label for="age" class="inputLabel">Edad:</label>
+                <input type="text" class="inputText" name="edad" placeholder="{{edad}}">
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-right: 10%; align-items: center;">
+                <div>
+                    <label class="inputLabel">Rol:</label>
+                    <p class="inputLabel" style="opacity: 50%; margin: 10px 0px;">{{rol}}</p>
+                </div>
+                <p class="textButton" style="color: blue" onclick="action('changeRol')">Cambiar Rol</p>
+            </div>
+            <div>
+                <label for="profession" class="inputLabel">Profesión:</label>
+                <input type="text" class="inputText" name="profession" placeholder="{{profession}}">
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

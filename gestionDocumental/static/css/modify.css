@@ -1,0 +1,9 @@
+#userInfo {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+    height: 86%;
+    margin: 1% 20%;
+    overflow-y: auto;
+}
