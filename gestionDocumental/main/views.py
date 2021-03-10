@@ -215,7 +215,7 @@ def modify(request):
                         p.idCard.delete()
                         p.idCard = request.FILES["idCard"]
                     except KeyError:
-                        p.idCard = None
+                        pass
             
                     p.save()
 
