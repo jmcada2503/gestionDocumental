@@ -67,26 +67,32 @@ def registrarDatos(request):
 
         if (len(user.objects.filter(idCode=request.POST.get("idCode")))==0):
 
-            # Encriptar contraseña
-            if (request.POST.get("password") == request.POST.get("checkPassword")):
-                password = encode(request.POST.get("idCode"), request.POST.get("password"))
-                
-            # Validar edad
-            age = notNull(request.POST.get("age"))
             try:
-                age = int(age)
-            except:
-                pass
+                # Encriptar contraseña
+                if (request.POST.get("password") == request.POST.get("checkPassword")):
+                    password = encode(request.POST.get("idCode"), request.POST.get("password"))
+                    
+                # Validar edad
+                age = notNull(request.POST.get("age"))
+                try:
+                    age = int(age)
+                except:
+                    pass
 
-            # Validar documento de identidad
-            try:
-                idCard = request.FILES["idCard"]
-            except KeyError:
-                idCard = None
+                # Validar documento de identidad
+                try:
+                    idCard = request.FILES["idCard"]
+                except KeyError:
+                    idCard = None
 
-            # Registrar datos
-            p = user(request.POST.get("idCode"), idCard, request.POST.get("name"), request.POST.get("lastname"), 0, notNull(request.POST.get("phone")), password, notNull(request.POST.get("email")), notNull(request.POST.get("eps")), age, notNull(request.POST.get("profession")))
-            p.save()
+                # Validar número de teléfono
+                int(request.POST.get("phone"))
+
+                # Registrar datos
+                p = user(request.POST.get("idCode"), idCard, request.POST.get("name"), request.POST.get("lastname"), 0, notNull(request.POST.get("phone")), password, notNull(request.POST.get("email")), notNull(request.POST.get("eps")), age, notNull(request.POST.get("profession")))
+                p.save()
+            except ValueError:
+                return render(request, "main/templates/main.html", {"error":"ERROR: Los datos fueron ingresados de manera incorrecta, el usuario no ha sido guardado en el sistema"})
 
             return render(request, "main/templates/redirect.html", {"page": "/"})
         
