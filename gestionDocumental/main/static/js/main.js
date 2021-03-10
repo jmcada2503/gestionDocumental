@@ -4,7 +4,6 @@ function sendData() {
     var send = true;
 
     // Check notNull elements
-    console.log("Nothing")
     var elements = document.getElementsByClassName("notNull");
     for (let i = 0; i < elements.length; i++) {
         console.log(elements[i].value)
