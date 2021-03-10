@@ -86,7 +86,8 @@ def registrarDatos(request):
                     idCard = None
 
                 # Validar número de teléfono
-                int(request.POST.get("phone"))
+                if (request.POST.get("phone") != ""):
+                    int(request.POST.get("phone"))
 
                 # Registrar datos
                 p = user(request.POST.get("idCode"), idCard, request.POST.get("name"), request.POST.get("lastname"), 0, notNull(request.POST.get("phone")), password, notNull(request.POST.get("email")), notNull(request.POST.get("eps")), age, notNull(request.POST.get("profession")))
@@ -146,7 +147,10 @@ def search(request):
                 if request.POST.get("selectedUser") != None:
                     # pasarle la información del usuario en la página en la que puede modificar sus datos
 
-                    usuario = user.objects.get(idCode=request.POST.get("selectedUser"));
+                    try:
+                        usuario = user.objects.get(idCode=request.POST.get("selectedUser"))
+                    except:
+                        return HttpResponse("<h1>ERROR: Este usuario no existe</h1>")
 
                     if usuario.rol == 1:
                         rol = "Administrador"
