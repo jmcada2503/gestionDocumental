@@ -11,7 +11,8 @@ urlpatterns = [
     path("newUser/", main.registrarDatos),
     path("signIn/", main.signIn),
     path("search/", main.search),
-    path("modifyUser/", main.modify)
+    path("modifyUser/", main.modify),
+    path("refreshInfo/", main.refreshInfo)
 ]
 
 if settings.DEBUG:

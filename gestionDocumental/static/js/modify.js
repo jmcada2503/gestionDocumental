@@ -20,3 +20,12 @@ function verifyButton() {
         document.getElementById("navbarButtons").getElementsByClassName("spaceBar")[0].remove()
     }
 }
+
+function disableLink() {
+    console.log("Prueba")
+    label = document.querySelector("label[for='idCard']");
+    if (label.children[0].href == window.location.href) {
+        label.innerHTML = label.children[0].innerHTML;
+        label.style.color = "gray";
+    }
+}

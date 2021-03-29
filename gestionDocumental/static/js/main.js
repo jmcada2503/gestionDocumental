@@ -4,7 +4,6 @@ function sendData() {
     var send = true;
 
     // Check notNull elements
-    console.log("Nothing")
     var elements = document.getElementsByClassName("notNull");
     for (let i = 0; i < elements.length; i++) {
         console.log(elements[i].value)
@@ -22,7 +21,7 @@ function sendData() {
 
     if (send) {
         //Check password
-        passwordElements = Array.from(document.getElementsByClassName("inputText")).slice(-2);
+        passwordElements = Array.from(document.getElementsByClassName("inputText")).slice(-3, -1);
         if (passwordElements[0].value != passwordElements[1].value) {
             alert("Las contraseñas deben ser iguales");
         }

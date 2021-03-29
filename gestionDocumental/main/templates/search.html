@@ -35,6 +35,8 @@
     <form action="/search/" method="POST" id="searchUser">{% csrf_token %}
         <input type="hidden" class="variable" name="rc" value="{{rc}}">
         <div class="flexDiv" style="justify-content: space-between; height: 10%; margin: 2.5% 20%; width: 60%;">
+            <img src="{% static 'img/refresh.png' %}" alt="Refrescar" style="height: 30px;" class="imgButton" onclick="refreshInfo()">
+            <div style="width: 50px;"></div>
             <input type="text" id="searchInput" placeholder="Buscar empleados" name="searchInput">
             <div class="flexDiv" style="justify-content: right;">
                 <div class="spaceBar" style="background-color: black;"></div>

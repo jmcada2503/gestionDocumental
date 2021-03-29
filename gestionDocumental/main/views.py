@@ -225,3 +225,12 @@ def modify(request):
                     p.save()
 
                 return render(request, "main/templates/closeTab.html")
+
+def refreshInfo(request):
+    if (request.method == "POST"):
+        if (request.POST.get("rc")):
+            rc = request.POST.get("rc").split("<and>")
+            p = user.objects.get(idCode=rc[1])
+            if p.signedIn == rc[0]:
+                print(getUsersInfo(user.objects.all()))
+                return HttpResponse(getUsersInfo(user.objects.all()))

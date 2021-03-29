@@ -5,7 +5,7 @@ body {
 #newUser {
     display: grid;
     width: 90%;
-    margin: 50px 5%;
+    margin: 50px 5% 0px 5%;
     border: 0px solid;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgb(179, 179, 179);
