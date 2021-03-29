@@ -82,7 +82,10 @@ function selectUser() {
     document.querySelector("form.variable").submit();
 }
 
-function refreshInfo() {
+function refreshInfo(button) {
+
+    button.animate([{transform: "rotate(360deg)"}], {duration: 250});
+
     let datos = new FormData(document.getElementById("searchUser"));
     fetch("/refreshInfo/", {
         method: "POST",

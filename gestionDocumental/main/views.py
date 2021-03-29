@@ -206,6 +206,7 @@ def modify(request):
                     p.save()
                 elif (request.POST.get("action") == "saveInfo"):
                     p = user.objects.get(idCode=request.POST.get("id"))
+
                     for i in range(1, len(p.__dict__)):
                         if (request.POST.get(list(p.__dict__.keys())[i]) != "" and request.POST.get(list(p.__dict__.keys())[i]) != None):
                             if (list(p.__dict__.keys())[i] != "password"):
@@ -223,6 +224,9 @@ def modify(request):
                         p.password = encode(p.idCode, request.POST.get("password"))
 
                     p.save()
+
+                    if (request.POST.get("idCode") != "" and request.POST.get("idCode") != None):
+                        user.objects.get(idCode=request.POST.get("id")).delete()
 
                 return render(request, "main/templates/closeTab.html")
 
